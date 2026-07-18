@@ -11,20 +11,17 @@ import { AnimatedBorderButton } from "../components/AnimatedBorderButton";
 
 const skills = [
   "React",
-  "Next.js",
   "TypeScript",
   "Node.js",
+  "Express.js",
   "GraphQL",
   "PostgreSQL",
   "MongoDB",
-  "Redis",
-  "Docker",
-  "AWS",
+  "Drizzle ORM",
+  "Prisma",
+  "Linux",
   "Vercel",
   "Tailwind CSS",
-  "Prisma",
-  "Jest",
-  "Cypress",
   "Figma",
   "Git",
   "GitHub Actions",
@@ -190,7 +187,7 @@ export const Hero = () => {
       animate-fade-in animation-delay-800"
       >
         <a
-          href="#about"
+          href="#about" 
           className="flex flex-col items-center gap-2 text-muted-foreground hover:text-primary transition-colors group"
         >
           <span className="text-xs uppercase tracking-wider">Scroll</span>
