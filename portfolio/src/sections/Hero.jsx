@@ -1,3 +1,4 @@
+import { useState, useEffect, useMemo } from "react";
 import { Button } from "@/components/Button";
 import {
   ArrowRight,
@@ -33,6 +34,35 @@ const skills = [
 ];
 
 const Hero = () => {
+  const [phraseIndex, setPhraseIndex] = useState(0);
+  const [visible, setVisible] = useState(true);
+  const phrases = [
+    "Aspiring Full Stack Developer",
+    "Building Projects That Solve Problems",
+  ];
+
+  const dots = useMemo(
+    () =>
+      [...Array(30)].map(() => ({
+        left: `${Math.random() * 100}%`,
+        top: `${Math.random() * 100}%`,
+        animDuration: `${15 + Math.random() * 20}s`,
+        animDelay: `${Math.random() * 5}s`,
+      })),
+    []
+  );
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setVisible(false);
+      setTimeout(() => {
+        setPhraseIndex((prev) => (prev + 1) % phrases.length);
+        setVisible(true);
+      }, 400);
+    }, 2000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
       {/* Bg */}
@@ -47,17 +77,16 @@ const Hero = () => {
 
       {/* Green Dots */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(30)].map((_, i) => (
+        {dots.map((dot, i) => (
           <div
+            key={i}
             className="absolute w-1.5 h-1.5 rounded-full opacity-60"
             style={{
               backgroundColor: "#20B2A6",
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animation: `slow-drift ${
-                15 + Math.random() * 20
-              }s ease-in-out infinite`,
-              animationDelay: `${Math.random() * 5}s`,
+              left: dot.left,
+              top: dot.top,
+              animation: `slow-drift ${dot.animDuration} ease-in-out infinite`,
+              animationDelay: dot.animDelay,
             }}
           />
         ))}
@@ -70,8 +99,14 @@ const Hero = () => {
           <div className="space-y-8">
             <div className="animate-fade-in">
               <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-sm text-primary">
-                <span className="w-2 h-2 bg Software Engineer • Full Stack Developer • Open Source Contributor-primary rounded-full animate-pulse" />
-               
+                <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
+                <span
+                  className={`transition-opacity duration-[400ms] ${
+                    visible ? "opacity-100" : "opacity-0"
+                  }`}
+                >
+                  {phrases[phraseIndex]}
+                </span>
               </span>
             </div>
 
