@@ -26,7 +26,7 @@ const highlights = [
   },
 ];
 
-export const About = () => {
+const About = () => {
   return (
     <section id="about" className="py-32 relative overflow-hidden">
       <div className="container mx-auto px-6 relative z-10">
@@ -40,31 +40,36 @@ export const About = () => {
             </div>
 
             <h2 className="text-4xl md:text-5xl font-bold leading-tight animate-fade-in animation-delay-100 text-secondary-foreground">
-              Building the future,
+              Building software that's
               <span className="font-serif italic font-normal text-white">
                 {" "}
-                one component at a time.
+                scalable, reliable, and built to last.
               </span>
             </h2>
 
             <div className="space-y-4 text-muted-foreground animate-fade-in animation-delay-200">
               <p>
-                I'm a passionate software engineer with over 5 years of
-                experience crafting digital products that make a difference. My
-                journey started with a curiosity for how things work on the web,
-                and it has evolved into a deep expertise in modern frontend
-                technologies.
+                I'm a fourth-year Computer Science student with a passion for
+                backend engineering and full-stack development. I enjoy designing
+                systems that are performant, maintainable, and solve real-world
+                problems, whether that's building AI-powered applications,
+                developer tools, or modern web platforms.
               </p>
               <p>
-                I specialize in React, Next.js, and TypeScript, building
-                everything from sleek landing pages to complex enterprise
-                applications. My approach combines technical excellence with a
-                keen eye for design and user experience.
+                Over the past few years, I've built projects ranging from an AI
+                SaaS platform with image and video generation to a classroom
+                management system and a custom domain-specific language (DSL) for
+                Linux system observability. Through these projects, I've gained
+                hands-on experience with Node.js, Express.js, PostgreSQL, React,
+                TypeScript, Docker, authentication systems, and modern web
+                technologies while developing a strong appreciation for clean
+                architecture and scalable system design.
               </p>
               <p>
-                When I'm not coding, you'll find me exploring new technologies,
-                contributing to open-source projects, or sharing knowledge with
-                the developer community.
+                When I'm not coding, you'll find me participating in hackathons,
+                exploring new technologies, contributing to open-source projects,
+                or sharpening my problem-solving skills through data structures
+                and algorithms.
               </p>
             </div>
 
@@ -100,3 +105,5 @@ export const About = () => {
     </section>
   );
 };
+
+export default About;

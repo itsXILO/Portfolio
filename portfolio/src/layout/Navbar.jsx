@@ -9,7 +9,7 @@ const navLinks = [
   { href: "#testimonials", label: "Testimonials" },
 ];
 
-export const Navbar = () => {
+const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -34,7 +34,7 @@ export const Navbar = () => {
           href="#"
           className="text-xl font-bold tracking-tight hover:text-primary"
         >
-          PM<span className="text-primary">.</span>
+          RJ<span className="text-primary">.</span>
         </a>
 
         {/* Desktop Nav */}
@@ -90,3 +90,5 @@ export const Navbar = () => {
     </header>
   );
 };
+
+export default Navbar;
